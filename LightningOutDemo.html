@@ -1,0 +1,36 @@
+<html>
+   
+<script src="https://tcs585-dev-ed.develop.my.site.com/LightningOutDemo/lightning/lightning.out.js"></script>
+
+<div data-lightning-out="true"></div>
+
+<script>
+    const appName = 'c:LeadViewerApp';
+    const componentName = 'c:leadViewerLWC';
+    const lightningEndpoint = 'https://tcs585-dev-ed.develop.my.site.com';
+    const targetElement = document.querySelector("[data-lightning-out]");
+    const componentAttributes = {
+
+    };
+
+    $Lightning.use(
+        appName,
+        function (){
+          $Lightning.createComponent(
+                  componentName,
+                  componentAttributes,
+                  targetElement,
+                  function (cmp){
+                    console.log('lightning component created');
+                  }
+          );
+        },
+        lightningEndpoint
+    );
+
+
+</script>
+
+
+
+</html>
