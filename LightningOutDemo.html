@@ -1,38 +1,27 @@
 <html>
-   
+ <body>
 <div id="lightning"></div>
 
 <script src="https://tcs585-dev-ed.develop.my.salesforce.com/lightning/lightning.out.js"></script>
                
 
-
 <script>
-    const appName = 'c:LeadViewerApp';
-    const componentName = 'c:leadViewerLWC';
-    const lightningEndpoint = 'https://tcs585-dev-ed.develop.my.site.com/';
-    const targetElement = document.querySelector("[data-lightning-out]");
-    const componentAttributes = {
-
-    };
-
     $Lightning.use(
-        appName,
-        function (){
-          $Lightning.createComponent(
-                  componentName,
-                  componentAttributes,
-                  targetElement,
-                  function (cmp){
-                    console.log('lightning component created');
-                  }
-          );
-        },
-        lightningEndpoint
+      'c:LeadViewerApp', // name of the Lightning app
+      function () {
+        // Callback once framework and app loaded
+        $Lightning.createComponent(
+          'c:leadViewerLWC', // top-level component of your app
+          {}, // attributes to set on the component when created
+          'lightningout', // the DOM location to insert the component
+          function (cmp) {
+            console.log('lightning component created'); // callback when component is created and active on the page
+          }
+        );
+      },
+      '<https://tcs585-dev-ed.develop.my.site.com/>' // Site endpoint
     );
-
-
-</script>
-
-
+  </script>
+</body>  
 
 </html>
